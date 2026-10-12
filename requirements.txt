@@ -1,0 +1,38 @@
+# === HSR — Hyper-Superviseur Réseau ===
+# Procus Tech — requirements.txt (MVP)
+
+# Interface graphique
+PyQt6>=6.7.0
+PyQt6-Qt6>=6.7.0
+PyQt6-sip>=13.6.0
+
+# Graphiques temps réel (bande passante, SFP, métriques)
+pyqtgraph>=0.13.7
+numpy>=1.26.0
+
+# Supervision SNMP (équipements réseau, bande passante, SFP/DOM)
+pysnmp>=6.2.2
+
+# Réseau asynchrone (scan TCP ports)
+aiofiles>=24.1.0
+
+# Base de données locale chiffrée (SQLCipher)
+# Option A — si SQLCipher disponible sur le poste :
+# sqlcipher3>=0.5.3
+# Option B — chiffrement applicatif via cryptography (fallback universel) :
+pycryptodome>=3.20.0
+
+# Sécurité & Cryptographie
+cryptography>=43.0.0
+
+# Gestion des secrets via OS keyring (jamais en clair dans le code)
+keyring>=25.4.0
+
+# Export sécurisé
+reportlab>=4.2.0          # génération rapports PDF
+
+# Logging structuré (audit trail infalsifiable)
+loguru>=0.7.2
+
+# Utilitaires
+python-dotenv>=1.0.1
