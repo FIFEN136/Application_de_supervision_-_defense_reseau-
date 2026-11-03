@@ -1,0 +1,22 @@
+[project]
+name = "procus-secure"
+version = "16.7.0"
+description = "Procus Secure — supervision réseau et cyberdéfense"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.ruff]
+line-length = 140
+extend-exclude = ["tests", "docs"]
+
+[tool.ruff.lint]
+select = ["E9", "F63", "F7", "F82", "F401", "B"]
+ignore = ["B905", "F401", "B008", "B904", "B007", "B006"]
+
+[tool.bandit]
+exclude_dirs = ["tests"]
+# B104 : les écouteurs (agents, syslog, NetFlow, leurres) sont des services réseau voulus, configurables
+skips = ["B101", "B104"]

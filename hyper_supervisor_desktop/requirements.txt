@@ -1,0 +1,48 @@
+# === HSR — Hyper-Superviseur Réseau ===
+# Procus Tech — requirements.txt (MVP)
+
+# Interface graphique
+PyQt6>=6.7.0
+PyQt6-Qt6>=6.7.0
+PyQt6-sip>=13.6.0
+
+# Graphiques temps réel (bande passante, SFP, métriques)
+pyqtgraph>=0.13.7
+numpy>=1.26.0
+
+# Supervision SNMP (équipements réseau, bande passante, SFP/DOM)
+# NB : pysnmp 7.x a supprimé l'API hlapi synchrone utilisée ici → rester en 6.x
+pysnmp>=6.2.2,<7
+pyasn1>=0.6.4          # 0.4.8 vulnérable (PYSEC-2026-2263, 3455-3457) ; testé avec pysnmp 6.2.6 + pyasn1 0.6.4
+
+# Bande passante / CPU / RAM de la machine locale + interfaces réseau
+psutil>=5.9.8
+
+# Réseau asynchrone (scan TCP ports)
+aiofiles>=24.1.0
+
+# Base de données locale chiffrée (SQLCipher)
+# Chiffrement AES-256 de la base (automatique si installé ; sinon la base reste en clair) :
+# La base est chiffrée (AES-256-GCM) avec « cryptography » sur tous les systèmes ; SQLCipher est facultatif : pip install -r requirements-sqlcipher.txt
+# Option B — chiffrement applicatif via cryptography (fallback universel) :
+pycryptodome>=3.20.0
+
+# Sécurité & Cryptographie
+cryptography>=43.0.0
+
+# Gestion des secrets via OS keyring (jamais en clair dans le code)
+keyring>=25.4.0
+
+# Export sécurisé
+reportlab>=4.2.0          # génération rapports PDF
+
+# Logging structuré (audit trail infalsifiable)
+loguru>=0.7.2
+
+# Utilitaires
+python-dotenv>=1.0.1
+
+# Sauvegarde de configuration par SSH et actions de réponse (v13/v14)
+paramiko>=3.4.0
+# Règles de détection au format Sigma
+PyYAML>=6.0
